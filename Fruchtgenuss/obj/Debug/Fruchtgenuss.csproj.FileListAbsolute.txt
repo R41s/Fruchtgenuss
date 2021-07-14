@@ -8,3 +8,13 @@ C:\Users\UfukAykac\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.cspr
 C:\Users\UfukAykac\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csproj.CoreCompileInputs.cache
 C:\Users\UfukAykac\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.exe
 C:\Users\UfukAykac\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.pdb
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\bin\Debug\Fruchtgenuss.exe.config
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\bin\Debug\Fruchtgenuss.exe
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\bin\Debug\Fruchtgenuss.pdb
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csprojAssemblyReference.cache
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.Form1.resources
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.Properties.Resources.resources
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csproj.GenerateResource.cache
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csproj.CoreCompileInputs.cache
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.exe
+C:\Users\MaximilianMatysiok\OneDrive - Schwarz IT\Desktop\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.pdb

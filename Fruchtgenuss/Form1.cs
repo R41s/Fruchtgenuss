@@ -15,13 +15,29 @@ namespace Fruchtgenuss
         public Form1()
         {
             InitializeComponent();
+            
         }
-
+        Box[,] Boxen = new Box[5, 7];
         //Test
         //Hallo
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Hey
+            int left = 30;
+            int top = 35;
+            for (int reihe = 0; reihe < 5; reihe++)
+            {
+                for (int box = 0; box < 7; box++)
+                {
+
+                    Boxen[reihe, box] = new Box(left, top);
+                    Boxen[reihe, box].Parent = this;
+                    Boxen[reihe, box].BackColor = Color.Red;
+                    left += 60;
+                }
+
+                top += 60;
+                left = 30;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
