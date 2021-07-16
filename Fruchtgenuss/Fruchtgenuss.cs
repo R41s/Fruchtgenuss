@@ -12,11 +12,17 @@ namespace Fruchtgenuss
 
     class Fruchtgenuss : GroupBox
     {
+
+
         Tastatur tastatur;
         Form1 form;
+        Bildschirm bildschirm;
 
         public Fruchtgenuss(Form1 f)
         {
+
+            Height = 2000;
+            Width = 2000;
 
             Box[,] Boxen = new Box[5, 7];
             form = f;
@@ -33,10 +39,10 @@ namespace Fruchtgenuss
                     Boxen[reihe, box] = new Box(left, top);
                     Boxen[reihe, box].Parent = this;
                     Boxen[reihe, box].BackColor = Color.Red;
-                    left += 60;
+                    left += 110;
                 }
 
-                top += 60;
+                top += 110;
                 left = 30;
             }
 
@@ -44,14 +50,25 @@ namespace Fruchtgenuss
             tastatur.Parent = this;
             tastatur.Width = 300;
             tastatur.Height = 300;
-            tastatur.Left = 100;
-            tastatur.Top = 100;
+            tastatur.Left = 1000;
+            tastatur.Top = 600;
             tastatur.Text = "Tastatur";
 
 
+            bildschirm = new Bildschirm();
+            bildschirm.Parent = this;
+            bildschirm.Left = 1000;
+            bildschirm.Top = 80;
+            bildschirm.Width = 500;
+            bildschirm.Height = 500;
+            bildschirm.Text = "Bildschirm";
 
 
+        }
 
+        public Bildschirm getDisplay()
+        {
+            return bildschirm;
         }
     }
 }

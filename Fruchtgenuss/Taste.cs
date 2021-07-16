@@ -18,9 +18,9 @@ namespace Fruchtgenuss
 
         private void Taste_Click(object sender, EventArgs e)
         {
-            /*
+            
             Tastatur t = (Tastatur)Parent;
-            Bankautomat b = (Bankautomat)t.Parent;
+            Fruchtgenuss f = (Fruchtgenuss)t.Parent;
             //b.screen.FügeZifferHinzu(Text); //Funkionalität in Screen noch hinzufügen bzw. zu finden
             switch (Text)
             {
@@ -34,36 +34,17 @@ namespace Fruchtgenuss
                 case "8":
                 case "9":
                 case "0":
-                    b.getDisplay().FuegeZifferHinzu(Text);
+                    f.getDisplay().FuegeZifferHinzu(Text);
                     break;
                 case "Löschen":
-                    b.getDisplay().LoescheLetzteZiffer();
+                    f.getDisplay().LoescheLetzteZiffer();
                     break;
                 case "Bestätigen":
-                    switch (b.getDisplay().getZustand())
-                    {
-                        case 1: //Pin-Abfrage
-                            string eingabe = b.getDisplay().getEingabe();
-                            bool jn = b.getKartenlesegerät().checkPin(eingabe);
-                            if (jn)
-                            {
-                                b.getDisplay().ReagiereAufJaNein(jn);
-                            }
-                            else
-                            {
-                                MessageBox.Show("PIN ist falsch");
-                            }
-                            break;
-                        case 2://Betrags-Abfrage
-                            int betrag = Convert.ToInt32(b.getDisplay().getEingabe());
-                            b.getSchacht().GeldAuszahlen(betrag);
-                            b.getDisplay().ZumGeldEntnehmenAuffodern();
-                            break;
-                    }
+                    f.getDisplay().AddlistboxItem();
                     break;
             
             }
-            */
+            
         }
     }
 }

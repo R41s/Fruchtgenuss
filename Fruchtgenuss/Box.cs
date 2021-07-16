@@ -10,14 +10,14 @@ namespace Fruchtgenuss
 {
     class Box : System.Windows.Forms.Button
     {
-       
+        Produkte produkt;
         public Box(int left, int top)
         {
-            this.Height = 55;
-            this.Width = 55;
+            this.Height = 100;
+            this.Width = 100;
             this.Left = left;
             this.Top = top;
-          
+            this.Image = System.Drawing.Image.FromFile(@"C:\Users\ufuka\OneDrive\Desktop\iu.jpg");
         }
 
         
