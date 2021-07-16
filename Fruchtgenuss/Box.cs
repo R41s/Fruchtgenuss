@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Fruchtgenuss
 {
-    class Box : Button
+    class Box : System.Windows.Forms.Button
     {
        
         public Box(int left, int top)
