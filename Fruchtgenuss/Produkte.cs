@@ -9,15 +9,36 @@ namespace Fruchtgenuss
     class Produkte
     {
         int id;
-        float preis;
+        double preis;
         string name;
         string path;
-        public Produkte(int id, float preis, string name, string path)
+        public Produkte(int id, double preis, string name, string path)
         {
             this.id = id;
             this.preis = preis;
             this.name = name;
             this.path = path;
         }
+
+        public string getPath()
+        {
+            return path;
+        }
+
+        public double getpreis()
+        {
+            return preis;
+        }
+
+        public string getname()
+        {
+            return name;
+        }
+
+        public int getid()
+        {
+            return id;
+        }
+
     }
 }

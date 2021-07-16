@@ -20,6 +20,12 @@ namespace Fruchtgenuss
             this.Image = System.Drawing.Image.FromFile(@"C:\Users\ufuka\OneDrive\Desktop\iu.jpg");
         }
 
+        public void setproduct(Produkte p)
+        {
+            produkt = p;
+            string path = produkt.getPath();
+            this.Image = System.Drawing.Image.FromFile(path);
+        }
         
     }
 }

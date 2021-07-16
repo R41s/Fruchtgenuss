@@ -40,6 +40,14 @@ namespace Fruchtgenuss
                     f.getDisplay().LoescheLetzteZiffer();
                     break;
                 case "Bestätigen":
+
+                    int auswahl= Convert.ToInt32(f.getDisplay().getTextbox());
+
+                    int Reihe = auswahl / 7;
+                    int Spalte = auswahl % 7;
+
+
+
                     f.getDisplay().AddlistboxItem();
                     break;
             

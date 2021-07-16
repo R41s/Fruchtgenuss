@@ -8,6 +8,8 @@ using System.Drawing;
 
 namespace Fruchtgenuss
 {
+    
+
     class Bildschirm:GroupBox
     {
         TextBox tbx;
@@ -57,8 +59,13 @@ namespace Fruchtgenuss
 
         public void AddlistboxItem()
         {
-            lbx.Items.Add(tbx.Text);
+            lbx.Items.Add("hexy");
             tbx.Clear();
+        }
+
+        public string getTextbox()
+        {
+            return tbx.Text;
         }
     }
 }

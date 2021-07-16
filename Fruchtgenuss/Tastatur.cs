@@ -14,8 +14,8 @@ namespace Fruchtgenuss
             public Tastatur()
             {
                 BackColor = Color.White;
-                tasten = new Taste[13];
-                for (int i = 0; i < 13; i++)
+                tasten = new Taste[14];
+                for (int i = 0; i < 14; i++)
                 {
                     tasten[i] = new Taste();
                     tasten[i].Parent = this;
@@ -48,6 +48,8 @@ namespace Fruchtgenuss
                 tasten[11].Left = 200;
                 tasten[12].Top = 130;
                 tasten[12].Left = 200;
+                tasten[13].Top = 180;
+                tasten[13].Left = 200;
                 tasten[0].Text = "1";
                 tasten[1].Text = "2";
                 tasten[2].Text = "3";
@@ -61,7 +63,9 @@ namespace Fruchtgenuss
                 tasten[10].Text = "Abbruch";
                 tasten[11].Text = "Löschen";
                 tasten[12].Text = "Bestätigen";
+                tasten[13].Text = "Kaufen";
+                tasten[13].BackColor = Color.Green;
 
-            }
+        }
         }
 }
