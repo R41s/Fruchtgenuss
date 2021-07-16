@@ -28,3 +28,13 @@ C:\Users\ufuka\Source\Repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csp
 C:\Users\ufuka\Source\Repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csproj.CoreCompileInputs.cache
 C:\Users\ufuka\Source\Repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.exe
 C:\Users\ufuka\Source\Repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.pdb
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\bin\Debug\Fruchtgenuss.exe.config
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\bin\Debug\Fruchtgenuss.exe
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\bin\Debug\Fruchtgenuss.pdb
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csprojAssemblyReference.cache
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.Form1.resources
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.Properties.Resources.resources
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csproj.GenerateResource.cache
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.csproj.CoreCompileInputs.cache
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.exe
+C:\Users\MaximilianMatysiok\source\repos\Fruchtgenuss\Fruchtgenuss\obj\Debug\Fruchtgenuss.pdb

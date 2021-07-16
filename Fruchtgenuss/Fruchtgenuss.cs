@@ -13,12 +13,14 @@ namespace Fruchtgenuss
     class Fruchtgenuss : GroupBox
     {
         Tastatur tastatur;
-        public Form1 f;
+        Form1 form;
 
         public Fruchtgenuss(Form1 f)
         {
 
             Box[,] Boxen = new Box[5, 7];
+            form = f;
+            Parent = f;
 
 
             int left = 30;
@@ -29,7 +31,7 @@ namespace Fruchtgenuss
                 {
 
                     Boxen[reihe, box] = new Box(left, top);
-                    Boxen[reihe, box].Parent = f;
+                    Boxen[reihe, box].Parent = this;
                     Boxen[reihe, box].BackColor = Color.Red;
                     left += 60;
                 }
