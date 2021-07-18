@@ -43,7 +43,6 @@ namespace Fruchtgenuss
                 taste.Height = 50;
                 taste.Left = offset;
                 offset += size + 10;
-                Console.WriteLine(offset);
                 taste.Top = 40;
 
                 switch (coins[i])

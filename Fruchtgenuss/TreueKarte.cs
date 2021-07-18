@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
 
 namespace Fruchtgenuss
 {
     class TreueKarte : GroupBox
     {
-        private int points = 9;
+        private int points = 0;
         private List<PictureBox> picturePoints;
         private bool frozen = true;
 
@@ -88,6 +89,31 @@ namespace Fruchtgenuss
                     picturePoints.Add(point);
                 }
             }
+        }
+
+        public void LoadPoints()
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"TreueKarte.txt"))
+                {
+                    points = sr.Read() - '0';
+                    sr.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                points = 0;
+            }
+            Update();
+        }
+
+        public void SavePoints()
+        {
+            StreamWriter sw = new StreamWriter(@"TreueKarte.txt", false);
+            sw.Write(points);
+            sw.Close();
+            Update();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Fruchtgenuss
 
         double preis = 0.0f;
         private List<Box> Warenkorb = new List<Box>();
+        private List<bool> checkList = new List<bool>();
 
         public Bildschirm()
         {
@@ -103,27 +104,37 @@ namespace Fruchtgenuss
             UpdatePreis();
         }
 
-        public void AddWarenkorb(Box prod)
+        private void fillCheckList(int space)
         {
+            if (space > checkList.Count())
+                for (int i = checkList.Count(); i <= space; i++)
+                    checkList.Add(false);
+        }
+
+        public void AddWarenkorb(Box prod, int index)
+        {
+            fillCheckList(index);
+
+            if (checkList[index])
+                return;
+
             Warenkorb.Add(prod);
+            checkList[index] = true;
             UpdateWarenkorb();
         }
 
         public void ClearWarenkorb()
         {
             Warenkorb.Clear();
+            checkList.Clear();
             UpdateWarenkorb();
         }
 
         public void RemWarenkorb(int index)
         {
+            fillCheckList(index);
             Warenkorb.RemoveAt(index);
-            UpdateWarenkorb();
-        }
-
-        public void RemWarenkorb(Box prod)
-        {
-            Warenkorb.Remove(prod);
+            checkList[index] = false;
             UpdateWarenkorb();
         }
 

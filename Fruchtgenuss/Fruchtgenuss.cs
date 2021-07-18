@@ -119,6 +119,9 @@ namespace Fruchtgenuss
             karte.Left = 520;
             karte.Top = 600;
             karte.Text = "TreueKarte";
+            karte.LoadPoints();
+
+            loadBoxes();
         }
 
 
@@ -126,14 +129,14 @@ namespace Fruchtgenuss
         {
             try
             {
-                using (StreamReader sr = new StreamReader("TestFile.txt"))
+                using (StreamReader sr = new StreamReader(@"Produktbelegung.txt"))
                 {
-                    string line;
+                    int line;
                     int i = 0;
-                    while ((line = sr.ReadLine()) != null)
+                    while ((line = sr.Read()) != -1)
                     {
                         var (x, y) = Helper.Indicies.index1DTo2D(i++, 7);
-                        int id = sr.Read() - '0';
+                        int id = line - '0';
                         setProduct(x, y, produkte[id]);
                     }
                     sr.Close();
@@ -176,7 +179,9 @@ namespace Fruchtgenuss
                 }
                 var id = (prod.getid() + 1) % produkte.Length;
 
-                btn.setproduct(produkte[id]); 
+                btn.setproduct(produkte[id]);
+
+                saveProducts();
             };
         }
 
@@ -187,9 +192,9 @@ namespace Fruchtgenuss
                 for (int x = 0; x < 7; x++)
                 {
                     Produkte product = Boxen[x, y].getproduct();
-                    ids += Convert.ToChar(product == null ? 0 : product.getid());
+                    ids += Convert.ToString(product == null ? 0 : product.getid());
                 }
-            
+
             StreamWriter sw = new StreamWriter(@"Produktbelegung.txt", false);
             sw.Write(ids);
             sw.Close();

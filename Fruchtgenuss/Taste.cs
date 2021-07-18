@@ -41,33 +41,44 @@ namespace Fruchtgenuss
                     f.getDisplay().LoescheLetzteZiffer();
                     break;
                 case "Bestätigen":
-                    int auswahl= Convert.ToInt32(f.getDisplay().getTextbox()) - 1;
+                    try
+                    {
+                        int auswahl = Convert.ToInt32(f.getDisplay().getTextbox(), 10) - 1;
 
-                    int x = auswahl % 7;
-                    int y = (int)Math.Floor((double)auswahl / 7.0);
+                        int x = auswahl % 7;
+                        int y = (int)Math.Floor((double)auswahl / 7.0);
 
-                    if (auswahl > 7 * 5)
+                        if (auswahl > 7 * 5)
+                            return;
+
+                        Box currentbox = f.getboxen(x, y);
+                        Produkte prod = currentbox.getproduct();
+
+                        if (prod == null)
+                            return;
+
+                        f.getDisplay().AddWarenkorb(currentbox, auswahl);
+                        f.getDisplay().ClearEingabe();
+                    }
+                    catch (Exception ex)
+                    {
                         return;
-
-                    Box currentbox = f.getboxen(x, y);
-                    Produkte prod = currentbox.getproduct();
-                    
-                    if (prod == null)
-                        return;
-
-                    f.getDisplay().AddWarenkorb(currentbox);
-                    f.getDisplay().ClearEingabe();
+                    }
 
 
                     break;
                 case "Kaufen":
+                    if (f.bildschirm.GetWarenkorb().Count() <= 0)
+                        return;
+
                     double preis = f.getDisplay().getPreis();
                     preis *= 1.0 - 0.2 * Convert.ToDouble(f.karte.isFilled());
                     if (f.geldbeutel.minusGuthaben(preis))
                     {
                         if (f.karte.isFilled())
                             f.karte.ClearPoints();
-                        f.karte.AddPoint();
+                        else
+                            f.karte.AddPoint();
                         List<Box> warenkorb = f.getDisplay().GetWarenkorb();
                         foreach (var ware in warenkorb)
                         {
@@ -76,10 +87,11 @@ namespace Fruchtgenuss
                         }
 
                         f.getDisplay().ClearWarenkorb();
+                        f.saveProducts();
+                        f.karte.SavePoints();
                     }
                     break;
                 case "Abbruch":
-                    f.getDisplay().ClearWarenkorb();
                     f.getDisplay().ClearWarenkorb();
                     break;
             }
