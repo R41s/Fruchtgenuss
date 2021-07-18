@@ -11,19 +11,16 @@ namespace Fruchtgenuss
         int id;
         double preis;
         string name;
-        string path;
-        public Produkte(int id, double preis, string name, string path)
+     
+        public Produkte(int id, double preis, string name)
         {
             this.id = id;
             this.preis = preis;
             this.name = name;
-            this.path = path;
+            
         }
 
-        public string getPath()
-        {
-            return path;
-        }
+       
 
         public double getpreis()
         {

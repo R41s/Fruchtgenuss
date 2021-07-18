@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Fruchtgenuss
 {
@@ -19,17 +20,21 @@ namespace Fruchtgenuss
         Bildschirm bildschirm;
         public GeldBeutel geldbeutel;
         private AdminPanel adminpanel;
+        int productID;
+
         public Korb korb;
 
         private Produkte[] produkte = {
             null,
-            new Produkte(1, 3.99,"Banane",@"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
-            new Produkte(2, 3.99, "Apfel", "Properties.Resources.apfel"),
-            new Produkte(3, 3.99, "Birne", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
-            new Produkte(4, 3.99, "Traube", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
+            new Produkte(1, 1.99,"Banane"),
+            new Produkte(2, 0.99, "Apfel"),
+            new Produkte(3, 1.29, "Birne"),
+            new Produkte(4, 3.99, "Traube"),
         };
+      
         public Fruchtgenuss(Form1 f)
         {
+            
 
             Height = 2000;
             Width = 2000;
@@ -51,6 +56,12 @@ namespace Fruchtgenuss
                     Boxen[x, y].BackColor = Color.Red;
                     Boxen[x, y].Text = Convert.ToString(i);
                     Boxen[x, y].Click += Box_Click;
+
+                    
+                    
+                    
+
+
                     left += 110;
                     i++;
                 }
@@ -58,6 +69,8 @@ namespace Fruchtgenuss
                 top += 110;
                 left = 30;
             }
+
+            fillBoxes();
 
             tastatur = new Tastatur();
             tastatur.Parent = this;
@@ -100,12 +113,57 @@ namespace Fruchtgenuss
             korb.Top = 600;
             korb.Text = "Korb";
 
-            setProduct(2, 4, produkte[1]);
+            /*(setProduct(2, 4, produkte[1]);
             setProduct(6, 4, produkte[2]);
             setProduct(0, 2, produkte[3]);
             setProduct(1, 1, produkte[4]);
+            */
         }
 
+        private void fillBoxes()
+        {
+            StreamReader sr = new StreamReader(@"Produktbelegung.txt");
+            for (int y = 0; y < 5; y++)
+            {
+                for (int x = 0; x < 7; x++)
+                {
+           
+
+                    int index = sr.Read() - 48;
+
+                    switch (index)
+                    {
+                        case 0:
+                            setProduct(x, y, produkte[index]);
+                            break;
+                        case 1:
+                            setProduct(x, y, produkte[index]);
+                            break;
+                        case 2:
+                            setProduct(x, y, produkte[index]);
+                            break;
+                        case 3:
+                            setProduct(x, y, produkte[index]);
+                            break;
+                        case 4:
+                            setProduct(x, y, produkte[index]);
+                            break;
+                        default:
+                            x = 0;
+                            y++;
+                           
+                            break;
+                    }
+
+
+
+
+                    
+                }
+
+               
+            }
+        }
         private void setProduct(int x, int y, Produkte prod)
         {
             Boxen[x, y].setproduct(prod);
@@ -137,6 +195,39 @@ namespace Fruchtgenuss
 
                 btn.setproduct(produkte[id]); 
             };
+        }
+
+        public void saveProducts()
+        {
+            StreamWriter sw = new StreamWriter(@"Produktbelegung.txt");
+            
+
+            for (int y = 0; y < 5; y++)
+            {
+                for (int x = 0; x < 7; x++)
+                {
+                    Produkte product = Boxen[x, y].getproduct();
+
+                    if(product == null)
+                    {
+                        productID = 0;
+                        
+                    }
+                    else
+                    {
+                        productID = product.getid();
+                    }
+
+                    sw.Write(productID);
+                  
+                }
+
+                sw.Write("\n");
+              
+            }
+
+            sw.Close();
+
         }
     }
 }

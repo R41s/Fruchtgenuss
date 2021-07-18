@@ -47,5 +47,10 @@ namespace Fruchtgenuss
         private void button25_Click(object sender, EventArgs e)
         {
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            fruchtgenuss.saveProducts();
+        }
     }
 }
