@@ -61,6 +61,7 @@
     <Compile Include="GeldBeutel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Helper\Math.cs" />
     <Compile Include="Korb.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -79,6 +80,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransparentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreueKarte.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\banane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

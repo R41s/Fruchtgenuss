@@ -71,12 +71,12 @@ namespace Fruchtgenuss
                 taste.BackgroundImageLayout = ImageLayout.Stretch;
             }
 
-            preisAnzeige = new Label();
-            preisAnzeige.Parent = this;
-            preisAnzeige.Width = 90;
-            preisAnzeige.Left = 10;
-            preisAnzeige.Top = 20;
-            preisAnzeige.Text = String.Format("Guthaben: {0}", guthaben);
+            //preisAnzeige = new Label();
+            //preisAnzeige.Parent = this;
+            //preisAnzeige.Width = 90;
+            //preisAnzeige.Left = 10;
+            //preisAnzeige.Top = 20;
+            //preisAnzeige.Text = String.Format("Guthaben: {0}", guthaben);
 
             this.Image = Properties.Resources.beuuutel;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -84,7 +84,8 @@ namespace Fruchtgenuss
 
         public void updateGuthaben()
         {
-            preisAnzeige.Text = String.Format("Guthaben: {0:n}", guthaben);
+            //preisAnzeige.Text = String.Format("Guthaben: {0:n}", guthaben);
+            ((Fruchtgenuss)this.Parent).bildschirm.UpdateGuthaben();
         }
 
         public void addGuthaben(double val)
@@ -93,7 +94,7 @@ namespace Fruchtgenuss
             updateGuthaben();
         }
 
-        public double getGuthaben(double val)
+        public double getGuthaben()
         {
             return guthaben;
         }

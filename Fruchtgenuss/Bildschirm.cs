@@ -13,7 +13,7 @@ namespace Fruchtgenuss
     class Bildschirm:GroupBox
     {
         TextBox tbx;
-        Label lbl, preisAnzeige;
+        Label lbl, preisAnzeige, guthaben;
         public ListBox lbx;
 
         double preis = 0.0f;
@@ -47,10 +47,17 @@ namespace Fruchtgenuss
 
             preisAnzeige = new Label();
             preisAnzeige.Parent = this;
-            preisAnzeige.Width = 90;
+            preisAnzeige.Width = 200;
             preisAnzeige.Left = 10;
             preisAnzeige.Top = 30;
             preisAnzeige.Text = String.Format("Preis: {0}", preis);
+
+            guthaben = new Label();
+            guthaben.Parent = this;
+            guthaben.Width = 90;
+            guthaben.Left = 400;
+            guthaben.Top = 30;
+            guthaben.Text = String.Format("Guthaben: {0}", 0.0);
         }
 
         public void FuegeZifferHinzu(string s)
@@ -69,7 +76,10 @@ namespace Fruchtgenuss
         
         public void UpdatePreis()
         {
-            preisAnzeige.Text = String.Format("Preis: {0:n}", preis);
+            if(((Fruchtgenuss)this.Parent).karte.isFilled())
+                preisAnzeige.Text = String.Format("Preis: {0:n} -20% ({1:n})", preis, preis * 0.8);
+            else
+                preisAnzeige.Text = String.Format("Preis: {0:n}", preis);
         }
         public double getPreis()
         {
@@ -130,6 +140,11 @@ namespace Fruchtgenuss
         public void ClearEingabe()
         {
             tbx.Clear();
+        }
+
+        public void UpdateGuthaben()
+        {
+            guthaben.Text = String.Format("Guthaben: {0:n}", ((Fruchtgenuss)this.Parent).geldbeutel.getGuthaben());
         }
     }
 }

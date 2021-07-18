@@ -183,6 +183,16 @@ namespace Fruchtgenuss.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap smile {
+            get {
+                object obj = ResourceManager.GetObject("smile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Traube {
             get {
                 object obj = ResourceManager.GetObject("Traube", resourceCulture);

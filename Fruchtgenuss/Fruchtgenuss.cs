@@ -15,7 +15,7 @@ namespace Fruchtgenuss
         Box[,] Boxen = new Box[7, 5];
         Tastatur tastatur;
         Form1 form;
-        Bildschirm bildschirm;
+        public Bildschirm bildschirm;
         public GeldBeutel geldbeutel;
         private AdminPanel adminpanel;
         int productID;
@@ -52,7 +52,7 @@ namespace Fruchtgenuss
                 {
                     Boxen[x, y] = new Box(left, top);
                     Boxen[x, y].Parent = this;
-                    Boxen[x, y].BackColor = Color.Red;
+                    Boxen[x, y].BackgroundImage = Properties.Resources.iu;
                     Boxen[x, y].Text = Convert.ToString(i);
                     Boxen[x, y].Click += Box_Click;
 
@@ -112,13 +112,11 @@ namespace Fruchtgenuss
             korb.Top = 600;
             korb.Text = "Korb";
 
-
             karte = new TreueKarte();
             karte.Parent = this;
-            // TODO: chose a place for it
-            karte.Width = 300;
-            karte.Height = 300;
-            karte.Left = 1350;
+            karte.Width = 20 + 50 * 5;
+            karte.Height = 20 + 50 * 2 + 30;
+            karte.Left = 520;
             karte.Top = 600;
             karte.Text = "TreueKarte";
         }
@@ -134,7 +132,7 @@ namespace Fruchtgenuss
                     int i = 0;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        int x, y = Helper.Math.index1DTo2D(i++, 7);
+                        var (x, y) = Helper.Indicies.index1DTo2D(i++, 7);
                         int id = sr.Read() - '0';
                         setProduct(x, y, produkte[id]);
                     }

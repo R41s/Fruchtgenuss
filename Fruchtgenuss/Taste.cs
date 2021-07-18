@@ -61,8 +61,13 @@ namespace Fruchtgenuss
 
                     break;
                 case "Kaufen":
-                    if (f.geldbeutel.minusGuthaben(f.getDisplay().getPreis()))
+                    double preis = f.getDisplay().getPreis();
+                    preis *= 1.0 - 0.2 * Convert.ToDouble(f.karte.isFilled());
+                    if (f.geldbeutel.minusGuthaben(preis))
                     {
+                        if (f.karte.isFilled())
+                            f.karte.ClearPoints();
+                        f.karte.AddPoint();
                         List<Box> warenkorb = f.getDisplay().GetWarenkorb();
                         foreach (var ware in warenkorb)
                         {

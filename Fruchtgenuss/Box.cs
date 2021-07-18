@@ -60,7 +60,6 @@ namespace Fruchtgenuss
             {
                 this.Image = Properties.Resources.iu;
             }
-
         }
         
         public Produkte getproduct()

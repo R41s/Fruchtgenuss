@@ -9,14 +9,14 @@ using System.IO;
 
 namespace Helper
 {
-    class Math
+    class Indicies
     {
-        static public int[,] index1DTo2D(int index, int width)
+        static public Tuple<int, int> index1DTo2D(int index, int width)
         {
-            return {
-                return index % width,
-                Math.Floor(index / width);
-            };
+            return Tuple.Create(
+                index % width,
+                (int)Math.Floor((double)index / (double)width)
+            );
         }
 
         static public int index2DTo1D(int x, int y, int width)
