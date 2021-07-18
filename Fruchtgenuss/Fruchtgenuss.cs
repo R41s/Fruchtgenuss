@@ -24,7 +24,7 @@ namespace Fruchtgenuss
         private Produkte[] produkte = {
             null,
             new Produkte(1, 3.99,"Banane",@"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
-            new Produkte(2, 3.99, "Apfel", @"C:\Users\ufuka\OneDrive\Desktop\100px-Artwork_Großer_Apfel_PMDDX.png"),
+            new Produkte(2, 3.99, "Apfel", "Properties.Resources.apfel"),
             new Produkte(3, 3.99, "Birne", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
             new Produkte(4, 3.99, "Traube", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
         };

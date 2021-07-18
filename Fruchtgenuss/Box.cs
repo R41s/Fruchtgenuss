@@ -17,7 +17,7 @@ namespace Fruchtgenuss
             this.Width = 100;
             this.Left = left;
             this.Top = top;
-            this.Image = System.Drawing.Image.FromFile(@"C:\Users\ufuka\OneDrive\Desktop\iu.jpg");
+            this.Image = Properties.Resources.iu;
         }
 
         public void setproduct(Produkte p)
@@ -25,8 +25,41 @@ namespace Fruchtgenuss
             produkt = p;
             string path = @"C:\Users\ufuka\OneDrive\Desktop\iu.jpg";
             if (p != null)
-                path = p.getPath();
+             /*   path = p.getPath();
             this.Image = System.Drawing.Image.FromFile(path);
+             */
+             
+                
+                    switch(p.getname())
+                    {
+
+                    case "Apfel":
+                        this.Image = Properties.Resources.apfel;
+                        
+                        break;
+
+                    case "Banane":
+                        this.Image = Properties.Resources.banane;
+                        
+                        break;
+
+                    case "Traube":
+                        this.Image = Properties.Resources.Traube;
+                        
+                        break;
+
+                    case "Birne":
+                        this.Image = Properties.Resources.Birne;
+                        
+                        break;
+
+
+                }
+            if(p == null)
+            {
+                this.Image = Properties.Resources.iu;
+            }
+
         }
         
         public Produkte getproduct()

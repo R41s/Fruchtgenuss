@@ -90,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,6 +104,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0,5er.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1er.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2er.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5er.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10er.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11181763-Eine-Banane.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\beuuutel.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\korb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apfel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Birne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Traube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banane.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

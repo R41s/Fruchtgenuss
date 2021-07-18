@@ -45,7 +45,29 @@ namespace Fruchtgenuss
                 offset += size + 10;
                 Console.WriteLine(offset);
                 taste.Top = 40;
-                taste.BackgroundImage = System.Drawing.Image.FromFile(String.Format(@"C:\Users\ufuka\OneDrive\Desktop\{0}er.PNG", coins[i]));
+
+                switch (coins[i])
+                {
+                    case 0.5:
+                        taste.BackgroundImage = Properties.Resources._0_5er;
+                        
+                        break;
+
+                    case 1.0:
+                        taste.BackgroundImage = Properties.Resources._1er;
+                        break;
+                    case 2.0:
+                        taste.BackgroundImage = Properties.Resources._2er;
+                        break;
+                    case 5.0:
+                        taste.BackgroundImage = Properties.Resources._5er;
+                        break;
+
+                    case 10.0:
+                        taste.BackgroundImage = Properties.Resources._10er;
+                        break;
+                }
+                taste.BackColor = Color.Transparent;
                 taste.BackgroundImageLayout = ImageLayout.Stretch;
             }
 
@@ -56,7 +78,7 @@ namespace Fruchtgenuss
             preisAnzeige.Top = 20;
             preisAnzeige.Text = String.Format("Guthaben: {0}", guthaben);
 
-            this.Image = System.Drawing.Image.FromFile(@"C:\Users\ufuka\OneDrive\Desktop\beuuutel.PNG");
+            this.Image = Properties.Resources.beuuutel;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
