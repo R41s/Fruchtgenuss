@@ -114,13 +114,13 @@ namespace Fruchtgenuss
 
             karte = new TreueKarte();
             karte.Parent = this;
-            karte.Width = 20 + 50 * 5;
-            karte.Height = 20 + 50 * 2 + 30;
+            karte.Width = 400;
+            karte.Height = 250;
             karte.Left = 520;
             karte.Top = 600;
-            karte.Text = "TreueKarte";
             karte.LoadPoints();
-
+            karte.BackgroundImage = Properties.Resources.Kundenkarte;
+            
             loadBoxes();
         }
 

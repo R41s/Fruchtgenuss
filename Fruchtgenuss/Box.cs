@@ -41,7 +41,7 @@ namespace Fruchtgenuss
 
                     case "Banane":
                         this.Image = Properties.Resources.banane;
-                        
+
                         break;
 
                     case "Traube":

@@ -17,12 +17,13 @@ namespace Fruchtgenuss
 
         public TreueKarte()
         {
+            
             picturePoints = new List<PictureBox>();
             CreatePoints();
             var btn = new Button();
             btn.Parent = this;
-            btn.Top = 120;
-            btn.Left = 10;
+            btn.Top = 200;
+            btn.Left = 65;
             btn.Width = 250;
             btn.Height = 20;
             btn.Text = "Reinschieben";
@@ -79,10 +80,10 @@ namespace Fruchtgenuss
                 for (int x = 0; x < 5; x++) {
                     var point = new PictureBox();
                     point.Parent = this;
-                    point.Width = 50;
-                    point.Height = 50;
-                    point.Left = 10 + 50 * x;
-                    point.Top = 10 + 50 * y;
+                    point.Width = 40;
+                    point.Height = 40;
+                    point.Left = 30 + 50 * x;
+                    point.Top = 60 + 50 * y;
                     point.Image = Properties.Resources.smile;
                     point.SizeMode = PictureBoxSizeMode.StretchImage;
                     point.Visible = false;
