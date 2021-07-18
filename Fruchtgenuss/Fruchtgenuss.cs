@@ -149,8 +149,6 @@ namespace Fruchtgenuss
                             setProduct(x, y, produkte[index]);
                             break;
                         default:
-                            x = 0;
-                            y++;
                            
                             break;
                     }
@@ -161,8 +159,9 @@ namespace Fruchtgenuss
                     
                 }
 
-               
+                
             }
+            sr.Close();
         }
         private void setProduct(int x, int y, Produkte prod)
         {
@@ -222,7 +221,7 @@ namespace Fruchtgenuss
                   
                 }
 
-                sw.Write("\n");
+              
               
             }
 
