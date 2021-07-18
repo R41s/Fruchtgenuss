@@ -23,9 +23,15 @@ namespace Fruchtgenuss
         public void setproduct(Produkte p)
         {
             produkt = p;
-            string path = produkt.getPath();
+            string path = @"C:\Users\ufuka\OneDrive\Desktop\iu.jpg";
+            if (p != null)
+                path = p.getPath();
             this.Image = System.Drawing.Image.FromFile(path);
         }
         
+        public Produkte getproduct()
+        {
+            return this.produkt;
+        }
     }
 }

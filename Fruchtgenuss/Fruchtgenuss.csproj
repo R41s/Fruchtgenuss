@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Bildschirm.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -53,6 +56,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Fruchtgenuss.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GeldBeutel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Korb.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Produkte.cs" />

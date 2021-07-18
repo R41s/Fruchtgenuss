@@ -13,11 +13,21 @@ namespace Fruchtgenuss
     class Fruchtgenuss : GroupBox
     {
 
-        Box[,] Boxen = new Box[5, 7];
+        Box[,] Boxen = new Box[7, 5];
         Tastatur tastatur;
         Form1 form;
         Bildschirm bildschirm;
-        
+        public GeldBeutel geldbeutel;
+        private AdminPanel adminpanel;
+        public Korb korb;
+
+        private Produkte[] produkte = {
+            null,
+            new Produkte(1, 3.99,"Banane",@"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
+            new Produkte(2, 3.99, "Apfel", @"C:\Users\ufuka\OneDrive\Desktop\100px-Artwork_Großer_Apfel_PMDDX.png"),
+            new Produkte(3, 3.99, "Birne", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
+            new Produkte(4, 3.99, "Traube", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg"),
+        };
         public Fruchtgenuss(Form1 f)
         {
 
@@ -32,14 +42,15 @@ namespace Fruchtgenuss
             int left = 30;
             int top = 35;
             int i = 1;
-            for (int reihe = 0; reihe < 5; reihe++)
+            for (int y = 0; y < 5; y++)
             {
-                for (int box = 0; box < 7; box++)
+                for (int x = 0; x < 7; x++)
                 {
-                    Boxen[reihe, box] = new Box(left, top);
-                    Boxen[reihe, box].Parent = this;
-                    Boxen[reihe, box].BackColor = Color.Red;
-                    Boxen[reihe, box].Text = Convert.ToString(i);
+                    Boxen[x, y] = new Box(left, top);
+                    Boxen[x, y].Parent = this;
+                    Boxen[x, y].BackColor = Color.Red;
+                    Boxen[x, y].Text = Convert.ToString(i);
+                    Boxen[x, y].Click += Box_Click;
                     left += 110;
                     i++;
                 }
@@ -65,29 +76,67 @@ namespace Fruchtgenuss
             bildschirm.Height = 500;
             bildschirm.Text = "Bildschirm";
 
-            Produkte[] produkte=new Produkte[5];
-            produkte[0] = new Produkte(0,3.99,"Banane",@"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg");
-            produkte[1] = new Produkte(1, 3.99, "Apfel", @"C:\Users\ufuka\OneDrive\Desktop\100px-Artwork_Großer_Apfel_PMDDX.png");
-            produkte[2] = new Produkte(2, 3.99, "Birne", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg");
-            produkte[3] = new Produkte(3, 3.99, "Traube", @"C:\Users\ufuka\OneDrive\Desktop\11181763-Eine-Banane.jpg");
+            geldbeutel = new GeldBeutel();
+            geldbeutel.Parent = this;
+            geldbeutel.Left = 100;
+            geldbeutel.Top = 600;
+            geldbeutel.Width = 410;
+            geldbeutel.Height = 100;
+            geldbeutel.Text = "GeldBeutel";
 
-            Boxen[1, 0].setproduct(produkte[1]);
-            Boxen[2, 0].setproduct(produkte[1]);
+            adminpanel = new AdminPanel();
+            adminpanel.Parent = this;
+            adminpanel.Left = 100;
+            adminpanel.Top = 800;
+            adminpanel.Width = 110;
+            adminpanel.Height = 80;
+            adminpanel.Text = "AdminPanel";
 
+            korb = new Korb();
+            korb.Parent = this;
+            korb.Width = 300;
+            korb.Height = 300;
+            korb.Left = 1350;
+            korb.Top = 600;
+            korb.Text = "Korb";
 
+            setProduct(2, 4, produkte[1]);
+            setProduct(6, 4, produkte[2]);
+            setProduct(0, 2, produkte[3]);
+            setProduct(1, 1, produkte[4]);
         }
 
-        public Box getboxen(int i, int y)
+        private void setProduct(int x, int y, Produkte prod)
         {
+            Boxen[x, y].setproduct(prod);
+        }
 
-
-            Box currentbox = Boxen[i, y];
-            return currentbox;
+        public Box getboxen(int x, int y)
+        {
+            return Boxen[x, y];
         }
 
         public Bildschirm getDisplay()
         {
             return bildschirm;
+        }
+
+        private void Box_Click(object sender, EventArgs e)
+        {
+            Box btn = (Box)sender;
+            if (adminpanel.isLogged())
+            {
+                var prod = btn.getproduct();
+
+                if (prod == null)
+                {
+                    btn.setproduct(produkte[1]);
+                    return;
+                }
+                var id = (prod.getid() + 1) % produkte.Length;
+
+                btn.setproduct(produkte[id]); 
+            };
         }
     }
 }

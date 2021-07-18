@@ -13,8 +13,12 @@ namespace Fruchtgenuss
     class Bildschirm:GroupBox
     {
         TextBox tbx;
-        Label lbl;
+        Label lbl, preisAnzeige;
         public ListBox lbx;
+
+        double preis = 0.0f;
+        private List<Box> Warenkorb = new List<Box>();
+
         public Bildschirm()
         {
             BackColor = Color.White;
@@ -41,6 +45,12 @@ namespace Fruchtgenuss
             lbx.Left = 150;
             lbx.Top = 100;
 
+            preisAnzeige = new Label();
+            preisAnzeige.Parent = this;
+            preisAnzeige.Width = 90;
+            preisAnzeige.Left = 10;
+            preisAnzeige.Top = 30;
+            preisAnzeige.Text = String.Format("Preis: {0}", preis);
         }
 
         public void FuegeZifferHinzu(string s)
@@ -56,16 +66,70 @@ namespace Fruchtgenuss
             }
             tbx.Text = neu;
         }
-
-        public void AddlistboxItem()
+        
+        public void UpdatePreis()
         {
-            lbx.Items.Add("hexy");
-            tbx.Clear();
+            preisAnzeige.Text = String.Format("Preis: {0:n}", preis);
+        }
+        public double getPreis()
+        {
+            return preis;
+        }
+
+        public void UpdateWarenkorb()
+        {
+            lbx.Items.Clear();
+            preis = 0.0f;
+
+            foreach (var ware in Warenkorb)
+            {
+                Produkte p = ware.getproduct();
+                double warPreis = p.getpreis();
+                string str = String.Format("{0}: {1:n}", p.getname(), warPreis);
+                preis += warPreis;
+                lbx.Items.Add(str);
+            }
+
+            UpdatePreis();
+        }
+
+        public void AddWarenkorb(Box prod)
+        {
+            Warenkorb.Add(prod);
+            UpdateWarenkorb();
+        }
+
+        public void ClearWarenkorb()
+        {
+            Warenkorb.Clear();
+            UpdateWarenkorb();
+        }
+
+        public void RemWarenkorb(int index)
+        {
+            Warenkorb.RemoveAt(index);
+            UpdateWarenkorb();
+        }
+
+        public void RemWarenkorb(Box prod)
+        {
+            Warenkorb.Remove(prod);
+            UpdateWarenkorb();
+        }
+
+        public List<Box> GetWarenkorb()
+        {
+            return Warenkorb;
         }
 
         public string getTextbox()
         {
             return tbx.Text;
+        }
+
+        public void ClearEingabe()
+        {
+            tbx.Clear();
         }
     }
 }

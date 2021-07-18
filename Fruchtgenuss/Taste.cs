@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Fruchtgenuss
 {
     class Taste : Button
@@ -40,17 +41,42 @@ namespace Fruchtgenuss
                     f.getDisplay().LoescheLetzteZiffer();
                     break;
                 case "Bestätigen":
+                    int auswahl= Convert.ToInt32(f.getDisplay().getTextbox()) - 1;
 
-                    int auswahl= Convert.ToInt32(f.getDisplay().getTextbox());
+                    int x = auswahl % 7;
+                    int y = (int)Math.Floor((double)auswahl / 7.0);
 
-                    int Reihe = auswahl / 7;
-                    int Spalte = auswahl % 7;
+                    if (auswahl > 7 * 5)
+                        return;
+
+                    Box currentbox = f.getboxen(x, y);
+                    Produkte prod = currentbox.getproduct();
+                    
+                    if (prod == null)
+                        return;
+
+                    f.getDisplay().AddWarenkorb(currentbox);
+                    f.getDisplay().ClearEingabe();
 
 
-
-                    f.getDisplay().AddlistboxItem();
                     break;
-            
+                case "Kaufen":
+                    if (f.geldbeutel.minusGuthaben(f.getDisplay().getPreis()))
+                    {
+                        List<Box> warenkorb = f.getDisplay().GetWarenkorb();
+                        foreach (var ware in warenkorb)
+                        {
+                            f.korb.Add(ware.getproduct());
+                            ware.setproduct(null);
+                        }
+
+                        f.getDisplay().ClearWarenkorb();
+                    }
+                    break;
+                case "Abbruch":
+                    f.getDisplay().ClearWarenkorb();
+                    f.getDisplay().ClearWarenkorb();
+                    break;
             }
             
         }

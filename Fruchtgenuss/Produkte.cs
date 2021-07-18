@@ -39,6 +39,5 @@ namespace Fruchtgenuss
         {
             return id;
         }
-
     }
 }
