@@ -9,8 +9,6 @@ using System.IO;
 
 namespace Fruchtgenuss
 {
-   
-
     class Fruchtgenuss : GroupBox
     {
 
@@ -21,6 +19,7 @@ namespace Fruchtgenuss
         public GeldBeutel geldbeutel;
         private AdminPanel adminpanel;
         int productID;
+        public TreueKarte karte;
 
         public Korb korb;
 
@@ -70,7 +69,7 @@ namespace Fruchtgenuss
                 left = 30;
             }
 
-            fillBoxes();
+            loadBoxes();
 
             tastatur = new Tastatur();
             tastatur.Parent = this;
@@ -113,55 +112,42 @@ namespace Fruchtgenuss
             korb.Top = 600;
             korb.Text = "Korb";
 
-            /*(setProduct(2, 4, produkte[1]);
-            setProduct(6, 4, produkte[2]);
-            setProduct(0, 2, produkte[3]);
-            setProduct(1, 1, produkte[4]);
-            */
+
+            karte = new TreueKarte();
+            karte.Parent = this;
+            // TODO: chose a place for it
+            karte.Width = 300;
+            karte.Height = 300;
+            karte.Left = 1350;
+            karte.Top = 600;
+            karte.Text = "TreueKarte";
         }
 
-        private void fillBoxes()
+
+        private void loadBoxes()
         {
-            StreamReader sr = new StreamReader(@"Produktbelegung.txt");
-            for (int y = 0; y < 5; y++)
+            try
             {
-                for (int x = 0; x < 7; x++)
+                using (StreamReader sr = new StreamReader("TestFile.txt"))
                 {
-           
-
-                    int index = sr.Read() - 48;
-
-                    switch (index)
+                    string line;
+                    int i = 0;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        case 0:
-                            setProduct(x, y, produkte[index]);
-                            break;
-                        case 1:
-                            setProduct(x, y, produkte[index]);
-                            break;
-                        case 2:
-                            setProduct(x, y, produkte[index]);
-                            break;
-                        case 3:
-                            setProduct(x, y, produkte[index]);
-                            break;
-                        case 4:
-                            setProduct(x, y, produkte[index]);
-                            break;
-                        default:
-                           
-                            break;
+                        int x, y = Helper.Math.index1DTo2D(i++, 7);
+                        int id = sr.Read() - '0';
+                        setProduct(x, y, produkte[id]);
                     }
-
-
-
-
-                    
+                    sr.Close();
                 }
-
-                
             }
-            sr.Close();
+            catch (Exception e)
+            {
+                setProduct(2, 4, produkte[1]);
+                setProduct(6, 4, produkte[2]);
+                setProduct(0, 2, produkte[3]);
+                setProduct(1, 1, produkte[4]);
+            }
         }
         private void setProduct(int x, int y, Produkte prod)
         {
@@ -198,35 +184,17 @@ namespace Fruchtgenuss
 
         public void saveProducts()
         {
-            StreamWriter sw = new StreamWriter(@"Produktbelegung.txt");
-            
-
+            string ids = "";
             for (int y = 0; y < 5; y++)
-            {
                 for (int x = 0; x < 7; x++)
                 {
                     Produkte product = Boxen[x, y].getproduct();
-
-                    if(product == null)
-                    {
-                        productID = 0;
-                        
-                    }
-                    else
-                    {
-                        productID = product.getid();
-                    }
-
-                    sw.Write(productID);
-                  
+                    ids += Convert.ToChar(product == null ? 0 : product.getid());
                 }
-
-              
-              
-            }
-
+            
+            StreamWriter sw = new StreamWriter(@"Produktbelegung.txt", false);
+            sw.Write(ids);
             sw.Close();
-
         }
     }
 }
